@@ -1,0 +1,34 @@
+<!-- <p>mostrar-viajeros works!</p> -->
+<div class="flex align-items-center justify-content-end bg-cyan-100">
+    <a pButton pRipple label="Agregar Viaje" icon="pi pi-inbox" class="bg-cyan-600" [routerLink]="['/addviajes']"></a>
+  </div>
+  
+  <div>
+    <p-toast></p-toast>
+  </div>
+  
+  <p-table [value]="viajes">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Numero Plazas</th>
+        <th>Frv</th>
+        <th>Nombre Viajero</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-viajes>
+      <tr>
+        <td>{{viajes.id}}</td>
+        <td>{{viajes.numeroPlazas}}</td>
+        <td>{{viajes.frv}}</td>
+        <td>{{viajes.viajeros.nombreCliente}}</td>
+        <td>
+          <button type="button" pButton pRipple icon="pi pi-times" class="bg-cyan-600 mr-1" (click)="eliminarViajes(viajes.id)">
+          </button>
+          <!-- <p-button icon="pi pi-times" styleClass="p-button-danger" (click)="eliminarViajero(viajeros.id)"></p-button> -->
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
